@@ -5,9 +5,8 @@
       version = "6.16.0"
     }
   }
-
 }
 
 provider "aws" {
-  region = "us-east-1"
+  # Configuration options
 }

@@ -6,8 +6,14 @@
     }
   }
 
-}
-
+   backend "s3" {
+    bucket = "remote-state-sana"
+     key = "locals-remote"
+    region = "us-east-1"
+    use_lockfile = true
+    encrypt = true
+  }
+ }
 provider "aws" {
   region = "us-east-1"
 }

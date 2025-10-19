@@ -1,32 +1,29 @@
-resource "aws_instance" "terraform" {
-     ami  = "ami-09c813fb71547fc4f"
-     instance_type = "t3.micro"
-     vpc_security_group_ids = [aws_security_group.allow_all.id]
-       tags = {
-       Name = "terraform"
-       terraform = "true"
-  }
-}
+# resource "aws_instance" "terraform" {
+#      ami  = var.ami_id
+#      instance_type = var.instance_type  == "dev" ? "t3.micro" : "t3.medium" # condition: experssion ? "true_value" : "false_value" , Here gave a condition; if instance type could change depends on environment; "dev" ? t3.micro not t3.medium 
+#      vpc_security_group_ids = [aws_security_group.allow_all.id]
+#     tags = var.ec2_tags
+# }
 
-resource "aws_security_group" "allow_all" {
-  name   = "allow-all"
+# resource "aws_security_group" "allow_all" {
+#   name   = var.sg_name
 
-egress {
-    from_port        = 0 # all ports
-    to_port          = 0
-    protocol         = "-1" # -1 means all protocols
-    cidr_blocks      = ["0.0.0.0/0"] #internet
-  }
+# egress {
+#     from_port        = var.egress_from_port # all ports
+#     to_port          = var.egress_to_port
+#     protocol         = var.protocol # -1 means all protocols
+#     cidr_blocks      = var.cidr_blocks #internet
+#   }
 
-ingress {
-    from_port        = 0 # all ports
-    to_port          = 0
-    protocol         = "-1" # -1 means all protocols
-    cidr_blocks      = ["0.0.0.0/0"] #internet
-  }
+# ingress {
+#     from_port        = var.ingress_from_port # all ports
+#     to_port          = var.ingress_to_port
+#     protocol         = var.protocol # -1 means all protocols
+#     cidr_blocks      = var.cidr_blocks #internet
+#   }
 
-    tags = {
-      Name = "allow-all"
-    }
+#     tags = {
+#       Name = "allow-all"
+#     }
 
-}
+# }
