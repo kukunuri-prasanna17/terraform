@@ -10,13 +10,12 @@ variable "instances" {
 variable "domain_name" {
   default = "daws86s.cfd"
 }
-
 ## Nested Map ##
 #variable "aws_instance" {
   # default = {
   #   mongodb = {
   #    instance_type = "t3.medium"      ## each.value.instance_type
-  #    ami  = "ami-09c813fb71547fc4f"   ## each.value.instance_type
+  #    ami_id  = "ami-09c813fb71547fc4f"   ## each.value.ami_id
   #   }
   #  }
   # }
